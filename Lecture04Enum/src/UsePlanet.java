@@ -6,7 +6,7 @@ public class UsePlanet {
         double earthWeight = 164.5;   // the user weighs 164.5 lbs
         double mass = earthWeight / Planet.EARTH.surfaceGravity();
         for (Planet p : Planet.values()) {
-            System.out.printf("Weight on " + p + " is " + p.surfaceWeight(mass));
+            System.out.println("Weight on " + p + " is " + p.surfaceWeight(mass));
         }
     }
 }

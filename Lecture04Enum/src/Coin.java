@@ -1,8 +1,6 @@
 public enum Coin {
     PENNY(1), NICKEL(5), DIME(10), QUARTER(25);
-
     private int cents;
-
     private Coin(int cents) {
         this.cents = cents;
     }
@@ -11,7 +9,7 @@ public enum Coin {
         return cents;
     }
 
-    public int perDollar() {
+    public double perDollar() {
         return 100 / cents;
     }
 }

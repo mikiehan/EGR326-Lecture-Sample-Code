@@ -7,6 +7,15 @@ public class Point implements Cloneable {
     private int x;
     private int y;
 
+    @Override
+    public Point clone() {
+        try {
+            return (Point) super.clone();
+        }catch(CloneNotSupportedException e){
+            return null; //will never ever reach here
+        }
+    }
+
     public Point(int x, int y){
         this.x = x;
         this.y = y;
@@ -15,6 +24,14 @@ public class Point implements Cloneable {
     public void translate(int dx, int dy){
         this.x += dx;
         this.y += dy;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 1;
+        result = 37 * result + x;
+        result = 37 * result + y;
+        return result;
     }
 
     @Override
@@ -33,23 +50,6 @@ public class Point implements Cloneable {
             return (x == other.x && y == other.y);
         } else {
             return false;
-        }
-    }
-
-    @Override
-    public int hashCode() {
-        int result = 1;
-        result = 37 * result + x;
-        result = 37 * result + y;
-        return result;
-    }
-
-    @Override
-    public Point clone() {
-        try {
-            return (Point) super.clone(); //since all fields are primitive shallow copy is ok!
-        } catch (CloneNotSupportedException e) {
-            return null; //dead code this will never happen because we already implemented Cloneable
         }
     }
 }
