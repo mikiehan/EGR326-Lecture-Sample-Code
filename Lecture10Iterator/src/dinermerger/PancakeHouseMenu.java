@@ -1,15 +1,9 @@
-package initialstate;
-
-import dinermerger.Menu;
+package dinermerger;
 
 import java.util.ArrayList;
 
-// Lou's PancakeHouse Menu uses ArrayList internally
-// Lou spent a lot of time implementing this code testing and debugging
-// so we DO NOT want to change the internal implementation using MenuItem Array
-
-public class PancakeHouseMenu {
-	private ArrayList menuItems;
+public class PancakeHouseMenu implements Menu {
+	ArrayList menuItems;
  
 	public PancakeHouseMenu() {
 		menuItems = new ArrayList();
@@ -45,7 +39,11 @@ public class PancakeHouseMenu {
 	public ArrayList getMenuItems() {
 		return menuItems;
 	}
-	
+  
+	public Iterator iterator() {
+		return new PancakeHouseMenuIterator(menuItems);
+	}
+  
 	public String toString() {
 		return "Objectville Pancake House Menu";
 	}

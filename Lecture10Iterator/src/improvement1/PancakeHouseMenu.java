@@ -1,6 +1,4 @@
-package initialstate;
-
-import dinermerger.Menu;
+package improvement1;
 
 import java.util.ArrayList;
 
@@ -48,6 +46,10 @@ public class PancakeHouseMenu {
 	
 	public String toString() {
 		return "Objectville Pancake House Menu";
+	}
+
+	public Iterator createIterator() {
+		return new PancakeHouseMenuIterator();
 	}
 
 	// other menu methods here

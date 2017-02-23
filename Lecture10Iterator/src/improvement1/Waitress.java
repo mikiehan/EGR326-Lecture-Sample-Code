@@ -1,10 +1,8 @@
-package initialstate;
+package improvement1;
 
 /*
  * Implement below code WIHOUT changing internal implementation of DinerMenu and PancakeHouseMenu
  */
-
-import dinermerger.Menu;
 
 import java.util.ArrayList;
 
@@ -41,7 +39,7 @@ public class Waitress {
 			System.out.println(oneMenu);
 		}
 	}
-	
+
 
 	// prints all vegetarian menu from both breakfast and lunch
 	public void printVegetarianMenu() {
@@ -59,7 +57,7 @@ public class Waitress {
 				System.out.println(oneMenu);
 		}
 	}
- 
+
 	// returns a particular name menu is vegetarian or not
 	public boolean isItemVegetarian(String name) {
 		//implement here
