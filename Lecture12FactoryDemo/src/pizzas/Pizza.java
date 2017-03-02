@@ -2,7 +2,7 @@ package pizzas;
 
 import java.util.ArrayList;
 
-abstract public class Pizza {
+public abstract class Pizza {
 	String name;
 	String dough;
 	String sauce;

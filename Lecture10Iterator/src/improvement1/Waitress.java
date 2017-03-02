@@ -18,58 +18,41 @@ public class Waitress {
 	// prints ALL menus (both breakfast and lunch)
 	public void printMenu() {
 		// implement here
-		printBreakfastMenu();
-		printLunchMenu();
+		printMenu(this.pancakeHouseMenu.createIterator());
+		printMenu(this.dinerMenu.createIterator());
 	}
 
-	// prints just breakfast menu
-	public void printBreakfastMenu() { 
+	// takes care of printing given the iterator
+	public void printMenu(Iterator iter) {
 		// implement here
-		ArrayList breakfastMenuArrayList = pancakeHouseMenu.getMenuItems();
-		for(Object o : breakfastMenuArrayList) {
-			System.out.println(o);
+		while(iter.hasNext()) {
+			System.out.println(iter.next());
 		}
 	}
- 
-	// prints just lunch menu
-	public void printLunchMenu() {
-		// implement here
-		MenuItem[] lunchMenuArray = dinerMenu.getMenuItems();
-		for(MenuItem oneMenu : lunchMenuArray) {
-			System.out.println(oneMenu);
-		}
-	}
-
 
 	// prints all vegetarian menu from both breakfast and lunch
 	public void printVegetarianMenu() {
-		//implement here
-		ArrayList breakfastMenuArrayList = pancakeHouseMenu.getMenuItems();
-		for(Object o : breakfastMenuArrayList) {
-			MenuItem oneMenu = (MenuItem) o;
-			if(oneMenu.isVegetarian())
-				System.out.println(oneMenu);
-		}
+		printVegetarianMenu(this.pancakeHouseMenu.createIterator());
+		printVegetarianMenu(this.dinerMenu.createIterator());
+	}
 
-		MenuItem[] lunchMenuArray = dinerMenu.getMenuItems();
-		for(MenuItem oneMenu : lunchMenuArray) {
-			if(oneMenu.isVegetarian())
-				System.out.println(oneMenu);
+	private void printVegetarianMenu(Iterator iter){
+		while(iter.hasNext()) {
+			MenuItem m = (MenuItem) iter.next();
+			if(m.isVegetarian())
+				System.out.println(m);
 		}
 	}
 
 	// returns a particular name menu is vegetarian or not
 	public boolean isItemVegetarian(String name) {
-		//implement here
-		ArrayList breakfastMenuArrayList = pancakeHouseMenu.getMenuItems();
-		for(Object o : breakfastMenuArrayList) {
-			MenuItem oneMenu = (MenuItem) o;
-			if(oneMenu.getName().equals(name) && oneMenu.isVegetarian())
-				return true;
-		}
+		if(isItemVegetarian(this.pancakeHouseMenu.createIterator(), name)) return true;
+		return isItemVegetarian(this.dinerMenu.createIterator(), name);
+	}
 
-		MenuItem[] lunchMenuArray = dinerMenu.getMenuItems();
-		for(MenuItem oneMenu : lunchMenuArray) {
+	private boolean isItemVegetarian(Iterator iter, String name){
+		while(iter.hasNext()) {
+			MenuItem oneMenu = (MenuItem) iter.next();
 			if(oneMenu.getName().equals(name) && oneMenu.isVegetarian())
 				return true;
 		}

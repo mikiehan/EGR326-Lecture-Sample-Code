@@ -1,21 +1,27 @@
 package improvement1;
 
-import initialstate.*;
+import java.util.ArrayList;
 
 /**
  * Created by mhan on 2/16/2017.
  */
 public class PancakeHouseMenuIterator implements Iterator{
-    public PancakeHouseMenuIterator() {
+    //define your field
+    private ArrayList menuItems;
+    private int position;
+    public PancakeHouseMenuIterator(ArrayList menuItems) {
         //fill this method
+        this.menuItems = menuItems;
+        this.position = 0;
     }
+
     @Override
     public boolean hasNext() {
-        return false;
+        return position < menuItems.size();
     }
 
     @Override
     public Object next() {
-        return null;
+        return menuItems.get(position++);
     }
 }
