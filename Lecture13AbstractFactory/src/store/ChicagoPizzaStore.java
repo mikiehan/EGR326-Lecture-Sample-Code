@@ -15,7 +15,6 @@ public class ChicagoPizzaStore extends PizzaStore {
 			pizza.setName("Chicago Style Cheese Pizza");
 
 		} else if (item.equals("veggies")) {
-
 			pizza = new VeggiePizza(ingredientFactory);
 			pizza.setName("Chicago Style Veggie Pizza");
 
