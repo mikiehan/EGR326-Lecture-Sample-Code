@@ -7,4 +7,14 @@ public class Date {
         month = m;
         day = d;
     }
+
+    public static Date getInstance(int m, int d){
+        //implement your code here
+        return null; //overwrite this code
+    }
+
+    public static int getObjectCount(){
+        //implement your code here
+        return -1; //overwrite this code
+    }
 }

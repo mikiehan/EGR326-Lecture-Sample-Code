@@ -23,8 +23,8 @@ public class PrototypeExample {
 
         // derive new font, same as existing (prototype) font, but bigger and bold
         Font f = g.getFont();
-        f = new Font("Comic Sans MS", Font.BOLD, 64);
-        //f = f.deriveFont(Font.BOLD, 64); //use prototype
+        //f = new Font("Comic Sans MS", Font.BOLD, 64);
+        f = f.deriveFont(Font.BOLD, 64); //use prototype
         g.setFont(f);
         g.drawString("I love EGR 326", 11, 200);
     }

@@ -6,13 +6,13 @@ public class StringInterning {
         String fly  = "fly";  String weight  = "weight";
         String fly2 = "fly";  String weight2 = "weight";
 
-        System.out.println(fly == fly2);
-        System.out.println(weight == weight2);
-        System.out.println("fly" + "weight" == "flyweight");
+        System.out.println(fly == fly2); //true
+        System.out.println(weight == weight2); //true
+        System.out.println(fly + weight == "flyweight"); //false
 
-        String flyweight = new String(fly + weight); //new String("flyweight");
-        System.out.println(flyweight == "flyweight");
-        System.out.println(fly + weight == "flyweight");
+        String flyweight =  fly + weight ; //new String(fly + weight); //new String("flyweight");
+        System.out.println(flyweight == "flyweight"); //false
+        System.out.println(fly + weight == "flyweight"); //false
 
         String interned1 = (fly + weight).intern();
         String interned2 = flyweight.intern();
