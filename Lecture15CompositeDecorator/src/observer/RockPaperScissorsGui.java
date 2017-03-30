@@ -49,8 +49,30 @@ public class RockPaperScissorsGui {
 	// attaches various listeners to handle events
 	private void handleEvents() {
 		//implement your method here
+		play.addActionListener(new ButtonListener());
+		Observer observer = new GameObserver();
+		game.addObserver(observer);
 	}
-	
+
+	private class GameObserver implements Observer {
+		@Override
+		public void update(Observable o, Object arg) {
+			String file1 = game.getWeapon1().toString().toLowerCase() + ".png";
+			String file2 = game.getWeapon2().toString().toLowerCase() + ".png";
+			move1.setIcon(new ImageIcon(file1));
+			move2.setIcon(new ImageIcon(file2));
+
+			int winner = game.winner();
+			move1.setBackground(null);
+			move2.setBackground(null);
+			if(winner == 1) {
+				move1.setBackground(Color.YELLOW);
+			} else if (winner == 2) {
+				move2.setBackground(Color.YELLOW);
+			}
+		}
+	}
+
 	// sets up containers for layout in the window
 	private void doLayout() {
 		Container moves = new JPanel(new FlowLayout());
@@ -62,7 +84,12 @@ public class RockPaperScissorsGui {
 	}
 
 	//Implement ActionListner for "Play button"
-
+	private class ButtonListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			game.playRound();
+		}
+	}
 	//Implement GameObserver
 
 }
